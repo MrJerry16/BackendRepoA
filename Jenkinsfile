@@ -8,17 +8,17 @@ pipeline {
         }
         stage('Build Backend') {
             steps {
-                sh '''
-                # Install dependencies
+                bat '''
+                REM Install dependencies and build the project
                 mvn clean install
                 '''
             }
         }
         stage('Run Backend') {
             steps {
-                sh '''
-                # Start the server
-                java -jar target/*.jar &
+                bat '''
+                REM Start the server
+                java -jar target\\*.jar
                 '''
             }
         }
