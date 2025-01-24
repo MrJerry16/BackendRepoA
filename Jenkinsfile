@@ -27,7 +27,7 @@ pipeline {
             steps {
                 bat '''
                 REM Start the server
-                java -jar target\\your-project-name-1.0.0.jar
+                java -jar target crud-0.0.1-SNAPSHOT.jar
                 '''
             }
         }
