@@ -20,14 +20,18 @@ pipeline {
         }
         stage('Verify Build Artifacts') {
             steps {
-                bat 'dir target\\'
+                bat 'dir C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\backkkkkkkk\\target\\'  // List the files in the target directory to confirm the JAR file
             }
         }
         stage('Run Backend') {
             steps {
                 bat '''
-                REM Start the server
-                java -jar target crud-0.0.1-SNAPSHOT.jar
+                REM Check if the jar file exists in the target directory
+                if exist C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\backkkkkkkk\\target\\crud-0.0.1-SNAPSHOT.jar (
+                    java -jar C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\backkkkkkkk\\target\\crud-0.0.1-SNAPSHOT.jar
+                ) else (
+                    echo "Jar file not found!"
+                )
                 '''
             }
         }
