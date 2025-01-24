@@ -1,7 +1,8 @@
 pipeline {
     agent any
     tools {
-        maven 'Maven3' 
+        maven 'Maven3'  // The Maven tool defined in Global Tool Configuration
+        jdk 'JDK11'     // The JDK tool defined in Global Tool Configuration
     }
     stages {
         stage('Clone Repository') {
